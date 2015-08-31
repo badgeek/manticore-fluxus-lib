@@ -16,6 +16,8 @@
 	m_initosc
 	m_getpos	 ;returns the world position of the grabbed primitive
 	m_pripos
+	m_gh
+	m_gl
 )
 
 (define (m_autoresize)
@@ -59,4 +61,12 @@
 	(with-primitive pri
 		(m_getpos)
 	)
+)
+
+(define (m_gh n) ;exclude amp gh
+    (+ 1 (gh n))
+)
+
+(define (m_gl n) ;log gh
+    (log (+ 1 (gh n)))
 )
