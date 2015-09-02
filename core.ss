@@ -21,7 +21,11 @@
 )
 
 (define (m_autoresize)
-	(set-projection-transform (vector 1 0 0 0 0 (/ (vx (get-screen-size)) (vy (get-screen-size))) 0 0 0 0 -1 -1 0 0 -2 0))
+	(set-projection-transform (vector 1 0 0 0 
+									  0 (/ (vx (get-screen-size)) (vy (get-screen-size))) 0 0 
+									  0 0 -1 -1 
+									  0 0 -2 0)
+	)
 )
 
 (define (m_initaudio)
