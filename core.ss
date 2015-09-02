@@ -21,6 +21,12 @@
 	m_pripos
 	m_gh
 	m_gl
+	m_help
+)
+
+(define (m_help)
+	(print "m_autoresize m_initaudio m_initmidi m_midislide m_camlookat m_poltocar m_initosc m_getpos m_pripos m_gh m_gl")
+	(newline)
 )
 
 (define (m_autoresize)
