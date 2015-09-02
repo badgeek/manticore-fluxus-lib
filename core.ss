@@ -6,11 +6,14 @@
 		 "../fluxus-018/help.ss"
 		 "../fluxus-018/camera.ss"
 		 "../fluxus-018/building-blocks.ss"
-		 "../fluxus-018/tasks.ss")
+		 "../fluxus-018/tasks.ss"
+)
 
 (provide
 	m_autoresize ; no strecthed vis
 	m_initaudio  ; init basic jack
+	m_initmidi	 ; midi device
+	m_midislide  ; midi get slider (id) value
 	m_camlookat  ; glu lookat
 	m_poltocar   ; polar to cartesian
 	m_initosc
@@ -73,4 +76,12 @@
 
 (define (m_gl n) ;log gh
     (log (+ 1 (gh n)))
+)
+
+(define (m_initmidi)
+	(midiin-open 0)
+)
+
+(define (m_midislide id)
+	(midi-ccn 0 id)
 )
