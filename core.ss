@@ -13,7 +13,7 @@
 	m_autoresize ; no strecthed vis
 	m_initaudio  ; init basic jack
 	m_initmidi	 ; midi device
-	m_midislide  ; midi get slider (id) value
+	m_midicc  ; midi get slider (id) value
 	m_camlookat  ; glu lookat
 	m_poltocar   ; polar to cartesian
 	m_initosc
@@ -22,11 +22,29 @@
 	m_gh
 	m_gl
 	m_help
+	m_homedir
+	m_filetime
 )
 
+
 (define (m_help)
-	(print "m_autoresize m_initaudio m_initmidi m_midislide m_camlookat m_poltocar m_initosc m_getpos m_pripos m_gh m_gl")
+	(print "m_autoresize m_initaudio m_initmidi m_midicc")
 	(newline)
+	(print "m_camlookat  m_poltocar  m_initosc  m_getpos")
+	(newline)
+	(print "m_pripos     m_gh        m_gl       m_homedir")
+	(newline)
+	(print "m_filetime   m_filetime")
+	(newline)
+)
+
+(define (m_homedir path)
+ (string-append (path->string (find-system-path 'home-dir)) "Documents/Fluxus" path)	
+)
+
+
+(define (m_filetime path)
+	(file-or-directory-modify-seconds path)
 )
 
 (define (m_autoresize)
@@ -58,7 +76,7 @@
 
 (define (m_initosc host port)
 	(osc-source port)
-	(osc-destination (string-append "osc.udp://" host ":" port))
+	;(osc-destination (string-append "osc.udp://" host ":" port))
 )
 
 
@@ -88,6 +106,6 @@
 	(midiin-open 0)
 )
 
-(define (m_midislide id)
+(define (m_midicc id)
 	(midi-ccn 0 id)
 )
