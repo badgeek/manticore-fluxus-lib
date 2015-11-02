@@ -24,17 +24,18 @@
 	m_help
 	m_homedir
 	m_filetime
+	m_windowsize
 )
 
 
 (define (m_help)
-	(print "m_autoresize m_initaudio m_initmidi m_midicc")
+	(print "m_autoresize m_initaudio m_initmidi m_midicc <cc number>")
 	(newline)
 	(print "m_camlookat  m_poltocar  m_initosc  m_getpos")
 	(newline)
 	(print "m_pripos     m_gh        m_gl       m_homedir")
 	(newline)
-	(print "m_filetime   m_filetime")
+	(print "m_filetime   m_filetime  m_windowsize")
 	(newline)
 )
 
@@ -108,4 +109,8 @@
 
 (define (m_midicc id)
 	(midi-ccn 0 id)
+)
+
+(define (m_windowsize w h)
+	 (set-screen-size (vector w h)) ; 
 )
