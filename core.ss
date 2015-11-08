@@ -113,4 +113,5 @@
 
 (define (m_windowsize w h)
 	 (set-screen-size (vector w h)) ; 
+	 (m_autoresize)
 )
